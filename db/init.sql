@@ -220,13 +220,15 @@ CREATE PROCEDURE [Tickets].[BuyTicketAuto]
 	@TicketEventNo		INT,
 	@GateNo				INT,
 	@memberGUID			UNIQUEIDENTIFIER,
-	@TicketCount		TINYINT
+	@TicketCount		TINYINT,
+	@IsSuccess			BIT OUT
 AS
 
 DECLARE @memberOut		TABLE
 (
 	[memberGUID]		UNIQUEIDENTIFIER
 )
+SET @IsSuccess = 0
 
 BEGIN TRY
 
@@ -241,6 +243,7 @@ BEGIN TRY
 
 	IF @TicketCount = (SELECT COUNT(*) FROM @memberOut)
 		BEGIN
+			SET @IsSuccess = 1
 			COMMIT
 		END
 	ELSE
