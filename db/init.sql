@@ -48,6 +48,9 @@ GO
 CREATE SCHEMA [Tickets]
 GO
 
+CREATE SCHEMA [Logs]
+GO
+
 CREATE TABLE [Places].[PlaceMains]
 (
 	[No]			INT,
@@ -181,6 +184,61 @@ GO
 CREATE NONCLUSTERED INDEX [ix_TicketOrders_memberGUID]
 	ON [Tickets].[TicketOrders] ([memberGUID])
 GO
+
+
+
+
+CREATE TABLE [Logs].[Logs]
+(
+	[No]				INT IDENTITY(1,1),
+	[EventDateTime]		DATETIME DEFAULT (GETDATE()),
+	
+	[memberGUID]		UNIQUEIDENTIFIER,
+	[TicketNumber]		INT,
+	[ListPrice]			SMALLMONEY,
+	
+	[Elapsed]			INT,
+	[IsSuccess]			BIT,
+	
+	[Exception]			NVARCHAR(250),
+	[Retry]				INT,
+	
+	CONSTRAINT [pk_Logs] PRIMARY KEY ([No]),
+)
+GO
+
+CREATE PROCEDURE [Logs].[AddLog]
+	@memberGUID			UNIQUEIDENTIFIER,
+	@TicketNumber		INT,
+	@ListPrice			SMALLMONEY,
+	
+	@Elapsed			INT,
+	@IsSuccess			BIT,
+	
+	@Exception			NVARCHAR(250),
+	@Retry				INT
+AS
+
+	INSERT INTO [Logs].[Logs] (
+		[memberGUID]
+		,[TicketNumber]
+		,[ListPrice]
+		,[Elapsed]
+		,[IsSuccess]
+		,[Exception]
+		,[Retry]
+	) VALUES (
+		@memberGUID
+		,@TicketNumber
+		,@ListPrice
+		,@Elapsed
+		,@IsSuccess
+		,@Exception
+		,@Retry
+	)
+	
+GO
+
 
 --初始化購票訂單預存程序 StoredProcedure
 CREATE PROCEDURE [Tickets].[CreateTicketOrderByEventNo]
