@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTicketLoaderApp", "eTicketLoaderApp\eTicketLoaderApp.csproj", "{7B7BC40E-A864-4433-B669-054DDEC54B14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTicketLoader.Data", "eTicketLoader.Data\eTicketLoader.Data.csproj", "{0486EB7B-6C45-4153-A313-81A6E9705D4C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{7B7BC40E-A864-4433-B669-054DDEC54B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B7BC40E-A864-4433-B669-054DDEC54B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B7BC40E-A864-4433-B669-054DDEC54B14}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0486EB7B-6C45-4153-A313-81A6E9705D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0486EB7B-6C45-4153-A313-81A6E9705D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0486EB7B-6C45-4153-A313-81A6E9705D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0486EB7B-6C45-4153-A313-81A6E9705D4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

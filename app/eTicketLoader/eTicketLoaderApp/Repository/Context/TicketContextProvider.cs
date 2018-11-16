@@ -6,13 +6,15 @@ namespace eTicketLoaderApp
 {
     public abstract class TicketContextProvider : IDisposable
     {
-        private TicketRepository _ticket;
+        private ITicketRepository _ticket;
+        private ILogRepository _log;
 
         protected abstract string GetConnectionString();
 
         protected TicketContextProvider()
         {
-
+            this._ticket = null;
+            this._log = null;
         }
 
         public ITicketRepository Ticket
@@ -25,6 +27,18 @@ namespace eTicketLoaderApp
                 return this._ticket;
             }
         }
+
+        public ILogRepository Log
+        {
+            get
+            {
+                if (this._log == null)
+                    this._log = new LogRepository(this.GetConnectionString());
+
+                return this._log;
+            }
+        }
+
 
         public void Dispose()
         {

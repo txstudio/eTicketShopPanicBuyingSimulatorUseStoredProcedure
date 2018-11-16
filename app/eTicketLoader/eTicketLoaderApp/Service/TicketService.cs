@@ -1,4 +1,4 @@
-﻿using eTicketLoader.Data;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,10 +19,29 @@ namespace eTicketLoaderApp
             return false;
         }
 
+        public IEnumerable<TicketEventStatus> GetSellableTickets(IEnumerable<TicketEventStatus> items)
+        {
+            var _results = new List<TicketEventStatus>();
+
+            foreach (var item in items)
+            {
+                if (item.TicketLeft > 0)
+                    _results.Add(item);
+            }
+
+            if (_results.Count == 0)
+                return null;
+
+            return _results.ToArray();
+        }
+
         //進行票券購買
         public bool BuyTicketAuto(TicketBuyer buyer)
         {
-            throw new NotImplementedException();
+            using (TicketContextProvider context = new TicketContext())
+            {
+                return context.Ticket.BuyTicketAuto(buyer);
+            }
         }
 
         //取得可以購買的票券清單
