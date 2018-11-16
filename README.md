@@ -1,1 +1,5 @@
-# eTicketShopPanicBuyingSimulatorUseStoredProcedure
+# 模擬演唱訂票搶購範例程式碼 - 使用預存程序
+
+這是一個模擬資料庫載遭遇使用者進行大量訂票需求時的範例（資料庫與程式碼）
+
+本項目目前不打算出 Entity Framework Core 的版本
