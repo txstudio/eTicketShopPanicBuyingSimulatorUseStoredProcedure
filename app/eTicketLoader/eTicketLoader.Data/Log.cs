@@ -18,6 +18,6 @@ namespace eTicketLoader.Data
         public bool? IsSuccess { get; set; }
 
         public string Exception { get; set; }
-        public int? Retry { get; set; }
+        public int Retry { get; set; }
     }
 }
