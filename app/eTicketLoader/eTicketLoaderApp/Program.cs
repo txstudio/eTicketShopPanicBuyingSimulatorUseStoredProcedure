@@ -12,28 +12,29 @@ namespace eTicketLoaderApp
     {
         public static int GlobalEventNo = 1;
 
-        /// <summary>要建立的執行緒最大值</summary>
-        static int _taskLimit = 10000;
+        static LoaderOptions _option = new LoaderOptions();
 
         static bool _exit = false;
         
         static void Main(string[] args)
         {
+            _option.TaskNumber = "10000";
+
             List<Task> _tasks;
 
             _tasks = new List<Task>();
 
-            for (int i = 0; i < _taskLimit; i++)
+            for (int i = 0; i < _option.Task; i++)
                 _tasks.Add(new Task(eShopTickeBuyer));
 
-            for (int i = 0; i < _taskLimit; i++)
+            for (int i = 0; i < _option.Task; i++)
                 _tasks[i].Start();
 
             while (_exit == false)
             {
                 _exit = true;
 
-                for (int i = 0; i < _taskLimit; i++)
+                for (int i = 0; i < _option.Task; i++)
                 {
                     if (_tasks[i].Status == TaskStatus.Running)
                     {
@@ -74,6 +75,14 @@ namespace eTicketLoaderApp
 
             while (true)
             {
+                //等待到指定時間再執行
+                if(_option.Start == false)
+                {
+                    Thread.Sleep(50);
+
+                    continue;
+                }
+
                 _stopwatch.Reset();
                 _stopwatch.Start();
 
