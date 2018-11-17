@@ -12,7 +12,6 @@ namespace eTicketLoaderApp
         public Nullable<Guid> MemberGUID { get; set; }
 
         public int TicketNumber { get; set; }
-        public decimal? ListPrice { get; set; }
 
         public int? Elapsed { get; set; }
         public bool? IsSuccess { get; set; }

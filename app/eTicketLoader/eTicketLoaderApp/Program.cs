@@ -104,7 +104,6 @@ namespace eTicketLoaderApp
 
                     _log.MemberGUID = _buyer.memberGUID;
                     _log.TicketNumber = _buyer.TicketCount;
-                    _log.ListPrice = (-1);
                     _log.Elapsed = Convert.ToInt32(_stopwatch.ElapsedMilliseconds);
                     _log.IsSuccess = _IsSuccess;
 

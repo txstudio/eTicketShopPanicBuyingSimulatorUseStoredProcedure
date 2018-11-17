@@ -33,7 +33,6 @@ namespace eTicketLoaderApp
 
                 _cmd.Parameters.Add("@memberGUID", SqlDbType.UniqueIdentifier);
                 _cmd.Parameters.Add("@TicketNumber", SqlDbType.Int);
-                _cmd.Parameters.Add("@ListPrice", SqlDbType.SmallMoney);
                 _cmd.Parameters.Add("@Elapsed", SqlDbType.Int);
                 _cmd.Parameters.Add("@IsSuccess", SqlDbType.Bit);
                 _cmd.Parameters.Add("@Exception", SqlDbType.NVarChar, 250);
@@ -41,7 +40,6 @@ namespace eTicketLoaderApp
 
                 _cmd.Parameters["@memberGUID"].Value = item.MemberGUID;
                 _cmd.Parameters["@TicketNumber"].Value = item.TicketNumber;
-                _cmd.Parameters["@ListPrice"].Value = item.ListPrice;
                 _cmd.Parameters["@Elapsed"].Value = item.Elapsed;
                 _cmd.Parameters["@IsSuccess"].Value = item.IsSuccess;
 
