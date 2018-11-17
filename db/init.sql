@@ -195,7 +195,6 @@ CREATE TABLE [Logs].[Logs]
 	
 	[memberGUID]		UNIQUEIDENTIFIER,
 	[TicketNumber]		INT,
-	[ListPrice]			SMALLMONEY,
 	
 	[Elapsed]			INT,
 	[IsSuccess]			BIT,
@@ -210,7 +209,6 @@ GO
 CREATE PROCEDURE [Logs].[AddLog]
 	@memberGUID			UNIQUEIDENTIFIER,
 	@TicketNumber		INT,
-	@ListPrice			SMALLMONEY,
 	
 	@Elapsed			INT,
 	@IsSuccess			BIT,
@@ -222,7 +220,6 @@ AS
 	INSERT INTO [Logs].[Logs] (
 		[memberGUID]
 		,[TicketNumber]
-		,[ListPrice]
 		,[Elapsed]
 		,[IsSuccess]
 		,[Exception]
@@ -230,7 +227,6 @@ AS
 	) VALUES (
 		@memberGUID
 		,@TicketNumber
-		,@ListPrice
 		,@Elapsed
 		,@IsSuccess
 		,@Exception
