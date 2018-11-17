@@ -70,11 +70,10 @@ namespace eTicketLoaderApp
             var _logService = new LogService();
 
             Log _log;
+            Stopwatch _stopwatch = new Stopwatch();
 
             while (true)
             {
-                Stopwatch _stopwatch = new Stopwatch();
-
                 _stopwatch.Reset();
                 _stopwatch.Start();
 
