@@ -30,6 +30,8 @@ namespace eTicketLoaderApp
             for (int i = 0; i < _option.Task; i++)
                 _tasks[i].Start();
 
+            Console.WriteLine("執行緒等待中 ... 起始時間為 {0}", _option.StartTime);
+
             while (_exit == false)
             {
                 _exit = true;
@@ -97,6 +99,8 @@ namespace eTicketLoaderApp
                 try
                 {
                     var _buyer = _randomService.GetRandomTicket(_tickets);
+
+                    Console.WriteLine("\t{0} 購買票券 {1} 張", _buyer.memberGUID, _buyer.TicketCount);
 
                     var _IsSuccess = _tickeService.BuyTicketAuto(_buyer);
 
